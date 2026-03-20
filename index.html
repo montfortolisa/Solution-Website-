@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Rehabilitation Centre (SRC)</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --green:#1f4d3a;
+  --gold:#c8a96a;
+  --cream:#f7f3ec;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'DM Sans', sans-serif;
+  background:var(--cream);
+  color:#333;
+  scroll-behavior:smooth;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+}
+
+section{padding:80px 20px; opacity:0; transform:translateY(40px); transition:0.8s;}
+
+.container{max-width:1200px;margin:auto;}
+
+.btn{
+  padding:12px 25px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn-primary{
+  background:var(--green);
+  color:white;
+}
+
+.btn-secondary{
+  border:1px solid var(--green);
+  color:var(--green);
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:white;
+  z-index:1000;
+  transition:0.3s;
+}
+
+header.scrolled{
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+}
+
+.menu-toggle{display:none;font-size:22px;}
+
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(31,77,58,0.7),rgba(31,77,58,0.7));
+  color:white;
+  display:flex;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{font-size:48px;}
+
+.stats{
+  background:var(--green);
+  color:white;
+  text-align:center;
+  display:flex;
+  justify-content:space-around;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+}
+
+.timeline{
+  display:flex;
+  overflow:auto;
+  gap:20px;
+}
+
+.step{
+  min-width:200px;
+}
+
+.team img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#ccc;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
+}
+
+.gallery div{
+  background:#ddd;
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.faq-item{
+  border-bottom:1px solid #ccc;
+  padding:10px;
+}
+
+.faq-answer{display:none;}
+
+footer{
+  background:var(--green);
+  color:white;
+  padding:40px;
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+}
+
+.crisis{
+  background:#8b0000;
+  color:white;
+  text-align:center;
+  padding:5px;
+  font-size:14px;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+    flex-direction:column;
+  }
+  .menu-toggle{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="crisis">In crisis? Call our 24/7 helpline: +234 810 648 7814</div>
+
+<header id="header">
+  <div class="nav">
+    <strong>SRC</strong>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#team">Our Team</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">Get Help Now</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+<div class="container">
+<h1>Restoring Lives. Rebuilding Futures.</h1>
+<p>Solution Rehabilitation Centre, Nibo, Anambra State — a government-owned facility dedicated to compassionate psychiatric and addiction care.</p>
+<br>
+<a class="btn btn-primary">Book a Consultation</a>
+<a class="btn btn-secondary">Learn More</a>
+</div>
+</section>
+
+<section class="stats">
+<div><h2 id="beds">0</h2><p>Beds</p></div>
+<div><h2 id="staff">0</h2><p>Staff</p></div>
+<div><h2>13</h2><p>Specialties</p></div>
+<div><h2>All</h2><p>Regions Served</p></div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2>About SRC</h2>
+<p>Solution Rehabilitation Centre is an 80-bed, government-owned psychiatric and addiction treatment facility located in Nibo, Anambra State. We provide evidence-based care through a multidisciplinary team committed to restoring dignity and promoting recovery.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h3>Regulated & Recognised By</h3>
+<div class="card-grid">
+<div class="card">NDLEA</div>
+<div class="card">Federal Ministry of Health</div>
+<div class="card">Anambra State Ministry of Health</div>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<h2>Our Services</h2>
+<div class="card-grid">
+<div class="card">Drug Detoxification</div>
+<div class="card">Psychosis Care</div>
+<div class="card">Mood Disorders</div>
+<div class="card">Anxiety Disorders</div>
+<div class="card">PTSD</div>
+<div class="card">Seizure Disorders</div>
+<div class="card">Psychotherapy</div>
+<div class="card">Family Therapy</div>
+</div>
+</div>
+</section>
+
+<section id="admissions">
+<div class="container">
+<h2>Admissions Process</h2>
+<div class="timeline">
+<div class="step">1. Enquiry</div>
+<div class="step">2. Assessment</div>
+<div class="step">3. Authorization</div>
+<div class="step">4. Admission</div>
+<div class="step">5. Recovery Plan</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Why Choose SRC</h2>
+<div class="card-grid">
+<div class="card">Government Regulated</div>
+<div class="card">Expert Team</div>
+<div class="card">Holistic Care</div>
+<div class="card">Confidential Environment</div>
+</div>
+</div>
+</section>
+
+<section id="team">
+<div class="container">
+<h2>Leadership</h2>
+<div class="card-grid team">
+<div class="card"><img><p>CEO</p></div>
+<div class="card"><img><p>Consultant Psychiatrist</p></div>
+<div class="card"><img><p>Medical Officer</p></div>
+<div class="card"><img><p>Head of Nursing</p></div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="container">
+<h2>Facility Gallery</h2>
+<div class="gallery">
+<div>Main Entrance</div>
+<div>Male Ward</div>
+<div>Female Ward</div>
+<div>Therapy Room</div>
+<div>Recreation</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Testimonials</h2>
+<div class="card-grid">
+<div class="card">“A family member regained stability and hope.”</div>
+<div class="card">“Professional and compassionate care.”</div>
+<div class="card">“A safe place for healing.”</div>
+</div>
+<p><em>Identities withheld to protect confidentiality</em></p>
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+<h2>FAQ</h2>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>What conditions do you treat?</h4>
+<p class="faq-answer">We treat psychiatric and substance use disorders.</p>
+</div>
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>Is treatment confidential?</h4>
+<p class="faq-answer">Yes, confidentiality is strictly maintained.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2>Contact</h2>
+<p>Solution Rehabilitation Centre, Nibo, Anambra State</p>
+<p>+234 810 648 7814</p>
+</div>
+</section>
+
+<footer>
+<p>© 2025 Solution Rehabilitation Centre</p>
+</footer>
+
+<a href="https://wa.me/2348106487814" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Menu
+function toggleMenu(){
+  const nav=document.getElementById("navLinks");
+  nav.style.display=nav.style.display==="flex"?"none":"flex";
+}
+
+// Scroll reveal
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity=1;
+      entry.target.style.transform="translateY(0)";
+    }
+  });
+});
+sections.forEach(sec=>observer.observe(sec));
+
+// Sticky header shadow
+window.addEventListener("scroll",()=>{
+  document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
+});
+
+// FAQ
+function toggleFAQ(el){
+  const ans=el.querySelector(".faq-answer");
+  ans.style.display=ans.style.display==="block"?"none":"block";
+}
+
+// Counters
+function animateValue(id, start, end, duration){
+  let obj=document.getElementById(id);
+  let range=end-start;
+  let startTime=null;
+
+  function step(timestamp){
+    if(!startTime) startTime=timestamp;
+    let progress=Math.min((timestamp-startTime)/duration,1);
+    obj.innerHTML=Math.floor(progress*range+start);
+    if(progress<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+let statsObserver=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    animateValue("beds",0,80,1000);
+    animateValue("staff",0,60,1000);
+  }
+});
+statsObserver.observe(document.querySelector(".stats"));
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
